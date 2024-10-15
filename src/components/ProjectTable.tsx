@@ -32,6 +32,7 @@ const ProjectTable: React.FC<ProjectTableProps> = ({
   // Function to handle the search
   const handleSearch = (selectedKeys: string[], confirm: () => void) => {
     setSearchText(selectedKeys[0]);
+    console.log(searchText);
     confirm(); // Call the confirm function to apply the filter
   };
 
@@ -120,7 +121,6 @@ const ProjectTable: React.FC<ProjectTableProps> = ({
       dataIndex: "members",
       key: "members",
       render: (_, record) => (
-
         <Avatar.Group
           size="large"
           max={{
@@ -129,9 +129,7 @@ const ProjectTable: React.FC<ProjectTableProps> = ({
           }}
         >
           <Tooltip key={"111"} title={"+"} placement="top">
-            <Avatar
-              style={{ backgroundColor: "#87d068" }}
-            >+</Avatar>
+            <Avatar style={{ backgroundColor: "#87d068" }}>+</Avatar>
           </Tooltip>
           {record.members.map((member) => (
             <Tooltip key={member.userId} title={member.name} placement="top">
@@ -142,7 +140,6 @@ const ProjectTable: React.FC<ProjectTableProps> = ({
               />
             </Tooltip>
           ))}
-
         </Avatar.Group>
       ),
     },

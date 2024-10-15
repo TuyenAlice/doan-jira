@@ -1,6 +1,6 @@
 import { Form, Input, Button, Card, Row, Col } from "antd";
 import Account from "../interfaces/AccountInterface";
-import { UserOutlined, LockOutlined, TwitterOutlined } from "@ant-design/icons";
+import { UserOutlined, TwitterOutlined } from "@ant-design/icons";
 
 interface SignupFormProps {
   onSubmit: (values: Account) => void;
