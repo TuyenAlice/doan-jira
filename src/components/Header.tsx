@@ -19,12 +19,12 @@ const JiraHeader: React.FC = () => {
     localStorage.removeItem("user"); // Clear user data from local storage
     localStorage.removeItem("accessToken"); // Remove the access token
     setUser(null); // Clear user state
-    navigate("/login");
+    navigate("/");
   };
 
   // Popover content for login button
   const loginContent = (
-    <Button type="primary" onClick={() => navigate("/login")}>
+    <Button type="primary" onClick={() => navigate("/")}>
       Login
     </Button>
   );

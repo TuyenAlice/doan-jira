@@ -7,7 +7,7 @@ export const RouterConfig = () => {
   const routes = useRoutes([
     {
       element: <LoginTemplate />,
-      path: "/login",
+      path: "/",
     },
     {
       element: <SignupPage />,

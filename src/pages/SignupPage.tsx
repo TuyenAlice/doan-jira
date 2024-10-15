@@ -61,7 +61,7 @@ const SignupPage = () => {
   }, [account, navigate]);
 
   const goToLogin = () => {
-    navigate("/login");
+    navigate("/");
   };
   return (
     <Layout>
