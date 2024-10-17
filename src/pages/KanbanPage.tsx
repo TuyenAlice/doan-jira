@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import { DndContext, useDraggable, useDroppable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
-import {
-  Row,
-  Col,
-  Card,
-  Typography,
-  Tag,
-  Avatar,
-  Divider,
-  Layout,
-  Breadcrumb,
-} from "antd";
+import { Row, Col, Card, Typography, Tag, Avatar, Divider, Layout } from "antd";
 import { getAllStatus } from "../services/status-service";
 import { TaskDetail, TaskStatus } from "../interfaces/TaskInterface";
 import {
@@ -20,7 +10,7 @@ import {
 } from "../services/project-service";
 import MenuBar from "../components/MenuBar";
 import { useSearchParams } from "react-router-dom";
-import Item from "antd/es/list/Item";
+
 const { Sider } = Layout;
 
 const { Title } = Typography;
