@@ -3,6 +3,7 @@ import { LoginTemplate } from "../layout/LoginTemplate";
 import ProjectPage from "../pages/ProjectPage";
 import SignupPage from "../pages/SignupPage";
 import GetUsers from "../components/GetUsers";
+import KanbanPage from "../pages/KanbanPage";
 
 export const RouterConfig = () => {
   const routes = useRoutes([
@@ -22,10 +23,10 @@ export const RouterConfig = () => {
       element: <GetUsers />,
       path: "/usermanagement",
     },
-    // {
-    //   element: <Dashboad />,
-    //   path: "/Dashboard",
-    // },
+    {
+      element: <KanbanPage />,
+      path: "/dashboard",
+    },
   ]);
   return routes;
 };

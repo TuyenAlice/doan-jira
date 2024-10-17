@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  ContainerOutlined,
   DesktopOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -31,12 +30,6 @@ const items: MenuItem[] = [
     label: "Quản lý người dùng",
     path: "/usermanagement",
   },
-  {
-    key: "3",
-    icon: <ContainerOutlined />,
-    label: "Dashboard",
-    path: "/dashboard",
-  },
 ];
 
 const MenuBar: React.FC = () => {
@@ -55,11 +48,11 @@ const MenuBar: React.FC = () => {
   };
 
   return (
-    <Layout className="flex" style={{ minHeight: "100vh" }}>
+    <Layout className="flex">
       <Sider collapsible collapsed={collapsed} onCollapse={toggleCollapsed}>
         <div
           style={{
-            display: "flex",
+            // display: "flex",
             justifyContent: "flex-end",
             padding: "10px",
           }}

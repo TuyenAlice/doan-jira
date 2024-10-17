@@ -78,14 +78,7 @@ const ProjectPage = () => {
   };
 
   const gotoKanban = async (id: number) => {
-    await getProjectDetail(id)
-      .then((response) => {
-        localStorage.setItem("project-detail", JSON.stringify(response.data));
-        navigate("/dashboard");
-      })
-      .catch((error) => {
-        alert(error.response.data.message);
-      });
+    navigate(`/dashboard?projectId=${id}`);
   };
 
   const onCreate = () => {

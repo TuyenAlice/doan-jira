@@ -26,13 +26,15 @@ const ProjectTable: React.FC<ProjectTableProps> = ({
   onEdit,
   onDelete,
 }) => {
-  // State to manage search text
+  // State to manage search text and modal visibility
   const [searchText, setSearchText] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   // Function to handle the search
   const handleSearch = (selectedKeys: string[], confirm: () => void) => {
-    setSearchText(selectedKeys[0]);
     console.log(searchText);
+    console.log(isModalOpen);
+    setSearchText(selectedKeys[0]);
     confirm(); // Call the confirm function to apply the filter
   };
 
@@ -45,10 +47,9 @@ const ProjectTable: React.FC<ProjectTableProps> = ({
   // Define columns for the table
   const columns: ColumnsType<ProjectList> = [
     {
-      title: "id",
+      title: "ID",
       dataIndex: "id",
       key: "id",
-
       sorter: (a, b) => a.id - b.id,
       sortDirections: ["descend"],
       width: 150,
@@ -121,26 +122,33 @@ const ProjectTable: React.FC<ProjectTableProps> = ({
       dataIndex: "members",
       key: "members",
       render: (_, record) => (
-        <Avatar.Group
-          size="large"
-          max={{
-            count: 3,
-            style: { color: "#f56a00", backgroundColor: "#fde3cf" },
-          }}
-        >
-          <Tooltip key={"111"} title={"+"} placement="top">
-            <Avatar style={{ backgroundColor: "#87d068" }}>+</Avatar>
-          </Tooltip>
-          {record.members.map((member) => (
-            <Tooltip key={member.userId} title={member.name} placement="top">
+        <>
+          <Avatar.Group
+            size="large"
+            max={{
+              count: 3,
+              style: { color: "#f56a00", backgroundColor: "#fde3cf" },
+            }}
+          >
+            {record.members.map((member) => (
+              <Tooltip key={member.userId} title={member.name} placement="top">
+                <Avatar
+                  src={member.avatar}
+                  style={{ backgroundColor: "#87d068" }}
+                  icon={<UserOutlined />}
+                />
+              </Tooltip>
+            ))}
+            <Tooltip key="addMember" title="Add Member" placement="top">
               <Avatar
-                src={member.avatar}
-                style={{ backgroundColor: "#87d068" }}
-                icon={<UserOutlined />}
-              />
+                style={{ backgroundColor: "#87d068", cursor: "pointer" }}
+                onClick={() => setIsModalOpen(true)} // Open modal on click
+              >
+                +
+              </Avatar>
             </Tooltip>
-          ))}
-        </Avatar.Group>
+          </Avatar.Group>
+        </>
       ),
     },
     {

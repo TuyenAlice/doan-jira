@@ -5,6 +5,7 @@ import {
   ProjectDetailDto,
 } from "../interfaces/ProjectInterface";
 import apiClient from "./api-client";
+import { TaskDetail } from "../interfaces/TaskInterface";
 
 // getAllProject
 export const getAllProject = async () => {
@@ -76,5 +77,17 @@ export const deleteProject = async (id: number) => {
   return {
     message: response.data.message as string,
     data: response.data.content[0] as number,
+  };
+};
+
+// updateTaskStatus
+export const updateTaskStatus = async (task: TaskDetail) => {
+  const response = await apiClient.put("/Project/updateStatus", {
+    taskId: task.taskId,
+    statusId: task.statusId,
+  });
+  return {
+    message: response.data.message as string,
+    data: response.data.content,
   };
 };
