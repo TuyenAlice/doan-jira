@@ -14,15 +14,17 @@ import {
   ProjectDetailDto,
   ProjectList,
 } from "../interfaces/ProjectInterface";
-import JiraHeader from "../components/Header"; // Sửa lỗi đánh máy ở tên
+
 import ProjectTable from "../components/ProjectTable";
 import ProjectDetai from "../components/ProjectDetail";
 import MenuBar from "../components/MenuBar";
 import { getAllUsers } from "../services/user-service";
 import { User } from "../interfaces/UserInterface";
 import { useNavigate } from "react-router-dom";
+import JiraHeader from "../components/Header";
+import { Header } from "antd/es/layout/layout";
 
-const { Header, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 const { Title } = Typography;
 
 const ProjectPage = () => {
@@ -138,20 +140,15 @@ const ProjectPage = () => {
   }, [projects, projectCats]);
   return (
     <Layout className="min-h-screen bg-gray-100">
-      {/* Header */}
-      <Header className="bg-blue-900 text-white">
-        <div className="container mx-auto">
-          <JiraHeader />
-        </div>
+      <Header>
+        <JiraHeader />
       </Header>
-
       {/* Layout for Sidebar and Content */}
       <Layout>
         {/* Sidebar Menu */}
-        <Sider width={256} className="bg-blue-900 text-white">
+        <Sider>
           <MenuBar />
         </Sider>
-
         {/* Main Content */}
         <Layout className="p-4">
           <Content className="bg-white rounded-lg shadow-lg">
